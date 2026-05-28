@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
@@ -6,10 +6,11 @@ import "./App.css";
 import Content from "./content/content.jsx";
 
 function App() {
+  let a = JSON.parse(localStorage.getItem("name"))
   const [ids,setId]= useState(0)
-  const [notes,upNotes]=useState([])
+  const [notes,upNotes]=useState(a !==null ? a : [])
   const [text, setText] = useState('');
-  let num = 0
+  
 
   const save = (a)=>{
     setText(a.target.value)
@@ -21,8 +22,16 @@ function App() {
     setId(id=>id+1)
     setText('')
     
+    // localStorage.setItem(String(ids),text)
+    
 
   }
+
+  useEffect(()=>{
+    localStorage.setItem('name', JSON.stringify(notes))
+    console.log(localStorage.getItem('name'))
+    console.log('hello')
+  },[notes])
 
   const hello = (key)=>{
     console.log(key)
