@@ -1,8 +1,8 @@
 {
-  "name": "what",
-  "private": true,
+  "name": "react-note-pad",
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
+  "homepage": "https://invy4.github.io/react-note-pad/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
